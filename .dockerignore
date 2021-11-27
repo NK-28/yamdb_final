@@ -1,0 +1,18 @@
+#Ignore everething
+
+**
+
+#Allowed 
+!api/
+!api_yamdb/
+!reviews/
+!templates/
+!users/
+!manage.py
+!requirements.txt
+!.env
+!.github
+#Override Allowed
+
+.idea/
+__pycache__/
