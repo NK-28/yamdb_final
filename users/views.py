@@ -67,8 +67,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         username = self.kwargs.get('pk')
-        user = get_object_or_404(User, username=username)
-        return user
+        return get_object_or_404(User, username=username)
 
     @action(detail=False, permission_classes=(IsAuthenticated,),
             methods=['patch', 'get'])
@@ -78,7 +77,7 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer = self.get_serializer(user)
             return Response(serializer.data)
 
-        if request.method == 'PATCH':
+        elif request.method == 'PATCH':
             user = get_object_or_404(User, username=self.request._user)
             serializer = self.get_serializer(user,
                                              data=request.data,
