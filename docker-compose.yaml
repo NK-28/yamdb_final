@@ -7,14 +7,14 @@ volumes:
 
 services:
   db:
-    image: postgres:12-alpine
+    image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - .env
     
   web:
-    build: .
+    image: 1523341/yamdb_final
     restart: unless-stopped
     env_file:
       - .env

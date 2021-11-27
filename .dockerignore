@@ -12,6 +12,8 @@
 !requirements.txt
 !.env
 !.github
+!Dockerfile
+!docker-compose.yaml
 #Override Allowed
 
 .idea/
