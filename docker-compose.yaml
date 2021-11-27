@@ -14,7 +14,7 @@ services:
       - .env
     
   web:
-    image: 1523341/yamdb_final
+    image: 1523341/yamdb_final:latest
     restart: unless-stopped
     env_file:
       - .env
