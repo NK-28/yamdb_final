@@ -1,0 +1,38 @@
+
+version: '3.3'
+
+volumes:
+  postgres_data:
+
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    
+  web:
+    image: 1523341/yamdb_final:latest
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+    volumes:
+      - ./static:/app/static
+      - ./media:/app/media
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    depends_on:
+      - web
+    volumes:
+      - ./static:/var/html/static
+      - ./media:/var/html/media
+      - ./nginx/default.conf:/etc/nginx/default.conf
+    ports:
+      - 80:80
