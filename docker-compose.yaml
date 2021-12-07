@@ -8,6 +8,7 @@ volumes:
 services:
   db:
     image: postgres:latest
+    restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
@@ -15,7 +16,7 @@ services:
     
   web:
     image: 1523341/yamdb_final:latest
-    restart: unless-stopped
+    restart: always
     env_file:
       - .env
     depends_on:
@@ -26,7 +27,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    restart: unless-stopped
+    restart: always
     depends_on:
       - web
     volumes:

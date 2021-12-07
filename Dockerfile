@@ -1,6 +1,6 @@
 FROM python:3.8
 LABEL maintainer="Nikita Krivda <nikita-krivda@yandex.ru>"
-WORKDIR /
+WORKDIR /app
 COPY . .
 RUN python3 -m pip install --upgrade pip
 RUN pip3 install gunicorn

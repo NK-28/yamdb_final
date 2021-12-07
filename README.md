@@ -56,3 +56,4 @@ EMAIL_HOST_PASSWORD= # пароль от почты
 SECRET_KEY= # секретный ключ
 
 ![example workflow](https://github.com/NK-28/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+http://nikkr.gq/
