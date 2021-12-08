@@ -3,8 +3,6 @@ version: '3.3'
 
 volumes:
   postgres_data:
-  static_value:
-  media_value:
 
 
 services:
@@ -24,8 +22,8 @@ services:
     depends_on:
       - db
     volumes:
-      - static_value:/app/static/
-      - media_value:/app/media/
+      - ./static:/app/static
+      - ./media:/app/media
 
   nginx:
     image: nginx:alpine
@@ -33,8 +31,8 @@ services:
     depends_on:
       - web
     volumes:
-      - static_value:/var/html/static/
-      - media_value:/var/html/media/
+      - ./static:/var/html/static
+      - ./media:/var/html/media
       - ./infra/nginx/default.conf:/etc/nginx/default.conf
     ports:
       - 80:80
