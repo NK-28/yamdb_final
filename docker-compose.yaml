@@ -33,6 +33,6 @@ services:
     volumes:
       - ./static:/var/html/static
       - ./media:/var/html/media
-      - ./nginx/default.conf:/etc/nginx/default.conf
+      - ./infra/nginx/default.conf:/etc/nginx/default.conf
     ports:
       - 80:80
